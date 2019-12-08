@@ -59,12 +59,14 @@ This method will get the `$user` object injected (see https://socialiteproviders
 
 ```php
 <?php
+use App\User;
+
 class LoginController extends Controller 
 {
-    loginWithPassport($user)
+    public function loginWithPassport($user)
     {
         // logic to create or log in a new user
-        User::firstOrCreate([...]);
+        User::firstOrCreate(['name' => $user->user->name, 'email' => ...]);
     }
 }
 ```
