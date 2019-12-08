@@ -41,6 +41,17 @@ Configure the controller and method which should handle the authenticated user.
 ]
 ```
 
+Add the following environment variables to `.env`:
+
+```
+LARAVELPASSPORT_CLIENT_ID=3
+LARAVELPASSPORT_CLIENT_SECRET=..............
+LARAVELPASSPORT_REDIRECT_URI=https://app1.example.com/login/callback
+LARAVELPASSPORT_HOST=https://auth.example.com
+```
+
+The `CLIENT_ID` and `CLIENT_SECRET` are obtained from the "ID provider", which uses Laravel Passport.
+
 ## Usage
 
 The example configuration (above) assumes you have added a `loginWithPassport()` method to the default `LoginController`. 
