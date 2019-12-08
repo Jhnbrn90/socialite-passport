@@ -1,0 +1,55 @@
+{
+    "name": "jhnbrn90/socialite-passport",
+    "description": "Easy socialite authentication using Laravel passport identity provider.",
+    "keywords": [
+        "jhnbrn90",
+        "socialite",
+        "passport",
+        "multi-authentication",
+        "single sign on",
+        "SSO"
+    ],
+    "homepage": "https://github.com/jhnbrn90/socialite-passport",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "John Braun",
+            "email": "johnbraun@pm.me"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.8",
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JhnBrn90\\SocialitePassport\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JhnBrn90\\SocialitePassport\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JhnBrn90\\SocialitePassport\\SocialitePassportServiceProvider"
+            ]
+        }
+    }
+}
