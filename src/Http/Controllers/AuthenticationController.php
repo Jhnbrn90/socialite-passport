@@ -18,6 +18,6 @@ class AuthenticationController extends Controller
         $controller = resolve(config('socialite-passport.controller.class'));
         $method = config('socialite-passport.controller.method');
 
-        $controller->{$method}($user);
+        return $controller->{$method}($user);
     }
 }
