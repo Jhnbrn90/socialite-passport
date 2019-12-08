@@ -14,7 +14,34 @@ You can install the package via composer:
 composer require jhnbrn90/socialite-passport
 ```
 
-... further installation instructions ...
+Publish the configuration
+
+```bash
+php artisan vendor:publish --provider="JhnBrn90\SocialitePassport\SocialitePassportServiceProvider" --tag="config"
+````
+
+Configure the controller and method which should handle the authenticated user.
+```
+'controller'  => [
+    'class'     => \App\Http\Controllers\Auth\LoginController::class,
+    'method'    => 'loginWithPassport',
+]
+```
+
+The example configuration (above) assumes you have added a `loginWithPassport()` method to the default `LoginController`. 
+This method will get the `$user` object injected (see https://socialiteproviders.netlify.com/providers/laravel-passport.html).
+
+```php
+<?php
+class LoginController extends Controller 
+{
+    loginWithPassport($user)
+    {
+        // logic to create or log in a new user
+        User::firstOrCreate([...]);
+    }
+}
+```
 
 ## Usage
 
