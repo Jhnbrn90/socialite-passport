@@ -5,9 +5,22 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/jhnbrn90/socialite-passport.svg?style=flat-square)](https://scrutinizer-ci.com/g/jhnbrn90/socialite-passport)
 [![Total Downloads](https://img.shields.io/packagist/dt/jhnbrn90/socialite-passport.svg?style=flat-square)](https://packagist.org/packages/jhnbrn90/socialite-passport)
 
- ... Description of what the package does goes here...
+ This package provides an easy way to authenticate users via a central identity provider that uses Laravel Passport.
+ 
+ In other words, allow users to login to "client" apps `app1.example.com` and `app2.example.com` using their account on `auth.example.com` (which uses Laravel passport). 
+ 
+ This package is aimed at simplifying the socialite integration in the "client" app, and assumes an existing "ID provider" set-up with [Laravel Passport](https://laravel.com/docs/6.x/passport). 
+ 
+ Generalized workflow:
+ * Create new `OAuth Client` in the "ID provider"
+ * Configure the `keys`, `redirect url` and `host` in the `.env` file of the "client"
+ * Configure which `Controller` should be passed the authenticated OAuth `$user` object in the client
+ * Register or log in the `$user` in the "client".
+
+For more details, see the `Installation` and `Usage` sections below.
 
 ## Installation
+
 You can install the package via composer:
 
 ```bash
@@ -28,6 +41,8 @@ Configure the controller and method which should handle the authenticated user.
 ]
 ```
 
+## Usage
+
 The example configuration (above) assumes you have added a `loginWithPassport()` method to the default `LoginController`. 
 This method will get the `$user` object injected (see https://socialiteproviders.netlify.com/providers/laravel-passport.html).
 
@@ -42,10 +57,6 @@ class LoginController extends Controller
     }
 }
 ```
-
-## Usage
-
-... how to use the package ...
 
 ### Testing
 
