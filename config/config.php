@@ -2,7 +2,7 @@
 
 return [
     'controller'    => [
-        'class'     => SomeController::class,
-        'method'    => 'login',
+        'class'     => \App\Http\Controllers\Auth\LoginController::class,
+        'method'    => 'loginWithPassport',
     ],
 ];

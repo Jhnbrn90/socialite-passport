@@ -1,8 +1,6 @@
 # Socialite Passport
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jhnbrn90/socialite-passport.svg?style=flat-square)](https://packagist.org/packages/jhnbrn90/socialite-passport)
-[![Build Status](https://img.shields.io/travis/Jhnbrn90/socialite-passport/master.svg?style=flat-square)](https://travis-ci.org/Jhnbrn90/socialite-passport)
-[![Quality Score](https://img.shields.io/scrutinizer/g/jhnbrn90/socialite-passport.svg?style=flat-square)](https://scrutinizer-ci.com/g/jhnbrn90/socialite-passport)
 [![Total Downloads](https://img.shields.io/packagist/dt/jhnbrn90/socialite-passport.svg?style=flat-square)](https://packagist.org/packages/jhnbrn90/socialite-passport)
 
  This package provides an easy way to authenticate users via a central identity provider that uses Laravel Passport.
@@ -34,11 +32,15 @@ php artisan vendor:publish --provider="JhnBrn90\SocialitePassport\SocialitePassp
 ````
 
 Configure the controller and method which should handle the authenticated user.
-```
-'controller'  => [
-    'class'     => \App\Http\Controllers\Auth\LoginController::class,
-    'method'    => 'loginWithPassport',
-]
+```php
+<?php
+
+return [
+    'controller'  => [
+        'class'     => \App\Http\Controllers\Auth\LoginController::class,
+        'method'    => 'loginWithPassport',
+    ],
+];
 ```
 
 Add the following environment variables to `.env`:
@@ -58,23 +60,16 @@ The example configuration (above) assumes you have added a `loginWithPassport()`
 This method will get the `$user` object injected (see https://socialiteproviders.netlify.com/providers/laravel-passport.html).
 
 ```php
-<?php
-use App\User;
-
 class LoginController extends Controller 
 {
-    public function loginWithPassport($user)
+    public function loginWithPassport($user) // gets authenticated $user injected
     {
-        // logic to create or log in a new user
+        // perform your logic here to create or log in a new user
+
+        // example:
         User::firstOrCreate(['name' => $user->user->name, 'email' => ...]);
     }
 }
-```
-
-### Testing
-
-``` bash
-composer test
 ```
 
 ### Changelog
