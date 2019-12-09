@@ -2,6 +2,7 @@
 
 namespace JhnBrn90\SocialitePassport\Http\Controllers;
 
+use Illuminate\Routing\Controller;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthenticationController extends Controller
