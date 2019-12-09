@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', [
+Route::get(config('socialite-passport.route.uri'), [
     'middleware' => 'web',
     'uses' => 'AuthenticationController@redirectToProvider'
-])->name('login');
+])->name(config('socialite-passport.route.name'));
 
-Route::get('/login/callback', [
+Route::get(config('services.laravelpassport.redirect'), [
     'middleware' => 'web',
     'uses' => 'AuthenticationController@handleProviderCallback'
 ]);
