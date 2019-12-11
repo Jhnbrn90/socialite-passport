@@ -73,7 +73,7 @@ class LoginController extends Controller
         // perform your logic here to create or log in a new user
 
         // example:
-        User::firstOrCreate(['name' => $user->user->name, 'email' => ...]);
+        User::firstOrCreate(['name' => $user['name'], 'email' => ...]);
     }
 }
 ```
