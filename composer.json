@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.2",
         "illuminate/support": "^6.0",
         "socialiteproviders/laravelpassport": "^1.0",
         "laravel/socialite": "^4.3"
