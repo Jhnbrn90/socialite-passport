@@ -26,6 +26,8 @@ class SocialitePassportServiceProvider extends ServiceProvider
 
         $this->app->register(EventServiceProvider::class);
 
-        $this->app->bind('AuthenticationController', fn() => new AuthenticationController());
+        $this->app->bind('AuthenticationController', function () {
+            return new AuthenticationController();
+        });
     }
 }
